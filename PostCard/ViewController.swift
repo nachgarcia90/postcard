@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    @IBOutlet weak var enterTextFieldName: UITextField!
+    
+    @IBOutlet weak var enterTextFieldMessage: UITextField!
+    
+    @IBOutlet weak var sendMail: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +28,19 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func sendMailButtonPressed(sender: UIButton) {
+        
+        messageLabel.hidden = false
+        messageLabel.text = enterTextFieldMessage.text
+        messageLabel.textColor = UIColor.blueColor()
+    
+        
+        enterTextFieldMessage.text=" "
+        enterTextFieldMessage.resignFirstResponder()
+        
+        sendMail.setTitle("Main Sent", forState: UIControlState.Normal)
+        
+        
+    }
 }
 
